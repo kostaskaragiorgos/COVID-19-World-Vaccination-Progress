@@ -9,12 +9,14 @@ class Vaccinations_Analyser():
         self.master.title("Vaccinations Analyser")
         self.master.geometry("250x200")
         self.master.resizable(False, False)
+        self.filename = ""
         
         self.menu = Menu(self.master)
         
         self.file_menu = Menu(self.menu,tearoff = 0)
-        self.file_menu.add_command(label="Insert a csv", accelerator='Ctrl+O')
-        self.file_menu.add_command(label="Close File", accelerator="Ctrl+F4")
+        self.file_menu.add_command(label="Insert a csv",
+                                   accelerator='Ctrl+O', command= self.insert_csv)
+        self.file_menu.add_command(label="Close File", accelerator="Ctrl+F4", command=self.closefile)
         self.file_menu.add_command(label="Exit",accelerator= 'Alt+F4',command = self.exitmenu)
         self.menu.add_cascade(label = "File",menu=self.file_menu)
         
@@ -40,6 +42,22 @@ class Vaccinations_Analyser():
     
     def aboutmenu(self):
         pass
+
+    def closefile(self):
+        if self.filename == "":
+            msg.showerror("ERROR", "NO FILE IMPORTED")
+        else:
+            self.filename = ""
+            msg.showinfo("SUCCESS", "CSV FILE SUCCESSFULLY CLOSED")
+
+    def insert_csv(self):
+        if self.filename == "":
+            self.filename = filedialog.askopenfilename(initialdir="/", title="Select csv file",
+                                                       filetypes=(("csv files", "*.csv"),
+                                                                  ("all files", "*.*")))
+        else:
+            msg.showerror("ERROR", "A CSV FILE IS ALREADY OPEN")
+
 
         
 
