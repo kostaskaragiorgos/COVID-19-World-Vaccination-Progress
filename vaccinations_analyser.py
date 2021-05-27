@@ -41,7 +41,7 @@ class Vaccinations_Analyser():
         pass
     
     def aboutmenu(self):
-        pass
+        msg.showinfo("About", "VACCINATIONS ANALYSER\nVERSION 1.0")
 
     def closefile(self):
         if self.filename == "":
