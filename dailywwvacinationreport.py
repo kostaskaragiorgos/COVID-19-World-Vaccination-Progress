@@ -1,4 +1,5 @@
 import pandas as pd
+FILENAME = "vaccinations.csv"
 def createdataframe(filename):
     """
     creates a dataframe.
@@ -16,7 +17,8 @@ def cleardataframe(dataframe):
     Returns:
         a modified dataframe
     """
-    return dataframe.drop_duplicates(subset='location', keep='last', inplace=True)
+    dataframe = dataframe.drop_duplicates(subset='location', keep='last')
+    return dataframe
 
 def removecontinents(dataframe):
     """ removes rows from dataframe
@@ -49,4 +51,11 @@ def getvalueofcomparison(dataframe, comparison, value=None):
             info.append(str(dataframe[dataframe[str(i)] == dataframe[str(i)].comparison()][str(value)]))
     return info
 
+def main():
+    df = createdataframe(FILENAME)
+    df = cleardataframe(df)
+    print(df.head())
 
+
+if __name__=='__main__':
+    main()
