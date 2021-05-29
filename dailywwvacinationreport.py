@@ -1,8 +1,21 @@
 import pandas as pd
 def createdataframe(filename):
+    """
+    creates a dataframe.
+    Args:
+        filename: a csv file
+    Returns:
+        a dataframe
+    """
     return pd.read_csv(filename)
 
 def cleardataframe(dataframe):
+    """ removes the duplicate values
+    Args:
+        dataframe: a dataframe
+    Returns:
+        a modified dataframe
+    """
     return dataframe.drop_duplicates(subset='location', keep='last', inplace=True)
 
 def removecontinents(dataframe):
