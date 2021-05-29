@@ -61,6 +61,12 @@ def getvalueofcomparison(dataframe, comparison, value=None):
             info.append(str(dataframe[dataframe[str(i)] == dataframe[str(i)].comparison()][str(value)]))
     return info
 
+    def addtoafile(data):
+        """
+        write data to a .txt file
+        
+        """
+
 def main():
     df = createdataframe(FILENAME)
     df = cleardataframe(df)
