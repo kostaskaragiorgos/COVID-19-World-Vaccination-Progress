@@ -11,11 +11,11 @@ def removecontinents(dataframe):
         dataframe.drop(dataframe[dataframe['location']== str(i)].index, inplace=True)
     return dataframe
 
-def getlocationsofcomparisson(dataframe, comparisson):
+def getvalueofcomparison(dataframe, comparison, value):
     locations = []
     index = ["total_vaccinations",	"people_vaccinated",	"people_fully_vaccinated",	"daily_vaccinations_raw"	,"daily_vaccinations",	"total_vaccinations_per_hundred",	"people_vaccinated_per_hundred",	"people_fully_vaccinated_per_hundred",	"daily_vaccinations_per_million"]
     for i in index:
-        locations.append(str(dataframe[dataframe[str(i)] == dataframe[str(i)].comparisson()][str(i)]))
+        locations.append(str(dataframe[dataframe[str(i)] == dataframe[str(i)].comparison()][str(i)]))
     return locations
 
 
