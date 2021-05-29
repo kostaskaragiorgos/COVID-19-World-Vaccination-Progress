@@ -32,6 +32,16 @@ def removecontinents(dataframe):
         dataframe.drop(dataframe[dataframe['location']== str(i)].index, inplace=True)
     return dataframe
 
+
+def getvalueofrows(dataframe):
+    info = []
+    indexlist = ["Asia", "Europe", "Africa", "Middle East", "World", "Upper middle income", "High income","North America", "Lower middle income"]
+    for i in indexlist:
+        info.append(str(dataframe.loc[dataframe['location'] == str(i)]))
+    return info
+
+
+
 def getvalueofcomparison(dataframe, comparison, value=None):
     """ removes rows from dataframe
     Args:
@@ -55,7 +65,8 @@ def main():
     df = createdataframe(FILENAME)
     df = cleardataframe(df)
     print(df.head())
-
+    info = getvalueofrows(df)
+    print(info[0])
 
 if __name__=='__main__':
     main()
