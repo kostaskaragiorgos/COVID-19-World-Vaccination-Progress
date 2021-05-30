@@ -1,5 +1,12 @@
 from datetime import date
 import pandas as pd
+import logging
+import os
+
+logging.basicConfig(filename='test.log', level=logging.INFO,
+                    format='%(levelname)s:%(message)s')
+logging.getLogger().addHandler(logging.StreamHandler())
+
 FILENAME = "vaccinations.csv"
 def createdataframe(filename):
     """
@@ -72,7 +79,7 @@ def addtoafile(data, flag):
     """
     write data to a .txt file
     """
-    with open('ana.txt', str(flag)) as f:
+    with open('dailyreport.txt', str(flag)) as f:
         for i in data:
             f.writelines(i)
 
@@ -87,6 +94,9 @@ def main():
     addtoafile(infosmin, "a+")
     infosmax = getvalueofcomparison(df,max, value=None)
     addtoafile(infosmax, "a+")
+    logging.info("dailyreport.txt has been successfully created")
+    os.system("pause")
+
 
 
 
