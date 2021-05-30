@@ -83,9 +83,10 @@ def main():
     info = getvalueofrows(df)
     addtoafile(info, "w")
     df  = removecontinents(df)
-    print(df.head(), type(df))
-    infos = getvalueofcomparison(df,min, value=None)
-    addtoafile(infos, "a+")
+    infosmin = getvalueofcomparison(df,min, value=None)
+    addtoafile(infosmin, "a+")
+    infosmax = getvalueofcomparison(df,max, value=None)
+    addtoafile(infosmax, "a+")
 
 
 
