@@ -56,10 +56,16 @@ def getvalueofcomparison(dataframe, comparison, value=None):
     index = ["total_vaccinations",	"people_vaccinated",	"people_fully_vaccinated",	"daily_vaccinations_raw"	,"daily_vaccinations",	"total_vaccinations_per_hundred",	"people_vaccinated_per_hundred",	"people_fully_vaccinated_per_hundred",	"daily_vaccinations_per_million"]
     if value == None:
         for i in index:
-            info.append(str(dataframe[dataframe[str(i)] == dataframe[str(i)].comparison()][str(i)]))
+            if comparison == "min":
+                info.append(str(dataframe[dataframe[str(i)] == dataframe[str(i)].min()][str(i)]))
+            else:
+                info.append(str(dataframe[dataframe[str(i)] == dataframe[str(i)].max()][str(i)]))
     else:
         for i in index:
-            info.append(str(dataframe[dataframe[str(i)] == dataframe[str(i)].comparison()][str(value)]))
+            if comparison == "max":
+                info.append(str(dataframe[dataframe[str(i)] == dataframe[str(i)].max()][str(value)]))
+            else:
+                info.append(str(dataframe[dataframe[str(i)] == dataframe[str(i)].min()][str(value)]))
     return info
 
 def addtoafile(data, flag):
@@ -74,12 +80,14 @@ def addtoafile(data, flag):
 def main():
     df = createdataframe(FILENAME)
     df = cleardataframe(df)
-    print(df.head())
     info = getvalueofrows(df)
-    addtoafile(info, w)
+    addtoafile(info, "w")
     df  = removecontinents(df)
-    print(df.head())
-    print(info[0])
+    print(df.head(), type(df))
+    infos = getvalueofcomparison(df,min, value=None)
+    addtoafile(infos, "a+")
+
+
 
 if __name__=='__main__':
     main()
