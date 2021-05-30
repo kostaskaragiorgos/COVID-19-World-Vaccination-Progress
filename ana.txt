@@ -24,4 +24,13 @@ Index: []      location  iso_code        date  total_vaccinations  ...  total_va
 [1 rows x 12 columns]                  location  iso_code        date  total_vaccinations  ...  total_vaccinations_per_hundred  people_vaccinated_per_hundred  people_fully_vaccinated_per_hundred  daily_vaccinations_per_million
 12200  Lower middle income  OWID_LMC  2021-05-28         272814048.0  ...                            8.81                           6.77                                 2.03                          1058.0
 
-[1 rows x 12 columns]
+[1 rows x 12 columns]4137    602991000.0
+Name: total_vaccinations, dtype: float6421745    166388129.0
+Name: people_vaccinated, dtype: float6421745    133532544.0
+Name: people_fully_vaccinated, dtype: float644137    18631000.0
+Name: daily_vaccinations_raw, dtype: float644137    17092571.0
+Name: daily_vaccinations, dtype: float647919    229.23
+Name: total_vaccinations_per_hundred, dtype: float647919    115.94
+Name: people_vaccinated_per_hundred, dtype: float647919    113.3
+Name: people_fully_vaccinated_per_hundred, dtype: float6416532    1000000.0
+Name: daily_vaccinations_per_million, dtype: float64
