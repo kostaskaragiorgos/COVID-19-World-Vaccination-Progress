@@ -1,0 +1,45 @@
+     location  iso_code        date  total_vaccinations  ...  total_vaccinations_per_hundred  people_vaccinated_per_hundred  people_fully_vaccinated_per_hundred  daily_vaccinations_per_million
+1227     Asia  OWID_ASI  2021-05-28         988496668.0  ...                            21.3                            5.7                                  2.2                          4681.0
+
+[1 rows x 12 columns]     location  iso_code        date  total_vaccinations  ...  total_vaccinations_per_hundred  people_vaccinated_per_hundred  people_fully_vaccinated_per_hundred  daily_vaccinations_per_million
+6513   Europe  OWID_EUR  2021-05-28         348088946.0  ...                           46.49                          30.95                                15.92                          5764.0
+
+[1 rows x 12 columns]    location  iso_code        date  total_vaccinations  ...  total_vaccinations_per_hundred  people_vaccinated_per_hundred  people_fully_vaccinated_per_hundred  daily_vaccinations_per_million
+233   Africa  OWID_AFR  2021-05-28          30840057.0  ...                             2.3                           1.77                                 0.56                           387.0
+
+[1 rows x 12 columns]Empty DataFrame
+Columns: [location, iso_code, date, total_vaccinations, people_vaccinated, people_fully_vaccinated, daily_vaccinations_raw, daily_vaccinations, total_vaccinations_per_hundred, people_vaccinated_per_hundred, people_fully_vaccinated_per_hundred, daily_vaccinations_per_million]
+Index: []      location  iso_code        date  total_vaccinations  ...  total_vaccinations_per_hundred  people_vaccinated_per_hundred  people_fully_vaccinated_per_hundred  daily_vaccinations_per_million
+22617    World  OWID_WRL  2021-05-28        1.844020e+09  ...                           23.66                          10.49                                 5.38                          4005.0
+
+[1 rows x 12 columns]                  location  iso_code        date  total_vaccinations  ...  total_vaccinations_per_hundred  people_vaccinated_per_hundred  people_fully_vaccinated_per_hundred  daily_vaccinations_per_million
+21910  Upper middle income  OWID_UMC  2021-05-28         843727055.0  ...                           31.78                           5.95                                 3.27                          7845.0
+
+[1 rows x 12 columns]         location  iso_code        date  total_vaccinations  ...  total_vaccinations_per_hundred  people_vaccinated_per_hundred  people_fully_vaccinated_per_hundred  daily_vaccinations_per_million
+8852  High income  OWID_HIC  2021-05-28         721801157.0  ...                           57.15                          35.24                                21.27                          5576.0
+
+[1 rows x 12 columns]            location  iso_code        date  total_vaccinations  ...  total_vaccinations_per_hundred  people_vaccinated_per_hundred  people_fully_vaccinated_per_hundred  daily_vaccinations_per_million
+15078  North America  OWID_NAM  2021-05-28         355430738.0  ...                           60.03                          36.51                                25.46                          4186.0
+
+[1 rows x 12 columns]                  location  iso_code        date  total_vaccinations  ...  total_vaccinations_per_hundred  people_vaccinated_per_hundred  people_fully_vaccinated_per_hundred  daily_vaccinations_per_million
+12200  Lower middle income  OWID_LMC  2021-05-28         272814048.0  ...                            8.81                           6.77                                 2.03                          1058.0
+
+[1 rows x 12 columns]4137    602991000.0
+Name: total_vaccinations, dtype: float6421745    166388129.0
+Name: people_vaccinated, dtype: float6421745    133532544.0
+Name: people_fully_vaccinated, dtype: float644137    18631000.0
+Name: daily_vaccinations_raw, dtype: float644137    17092571.0
+Name: daily_vaccinations, dtype: float647919    229.23
+Name: total_vaccinations_per_hundred, dtype: float647919    115.94
+Name: people_vaccinated_per_hundred, dtype: float647919    113.3
+Name: people_fully_vaccinated_per_hundred, dtype: float6416532    1000000.0
+Name: daily_vaccinations_per_million, dtype: float644137    602991000.0
+Name: total_vaccinations, dtype: float6421745    166388129.0
+Name: people_vaccinated, dtype: float6421745    133532544.0
+Name: people_fully_vaccinated, dtype: float644137    18631000.0
+Name: daily_vaccinations_raw, dtype: float644137    17092571.0
+Name: daily_vaccinations, dtype: float647919    229.23
+Name: total_vaccinations_per_hundred, dtype: float647919    115.94
+Name: people_vaccinated_per_hundred, dtype: float647919    113.3
+Name: people_fully_vaccinated_per_hundred, dtype: float6416532    1000000.0
+Name: daily_vaccinations_per_million, dtype: float64
