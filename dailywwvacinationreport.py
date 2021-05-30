@@ -42,6 +42,13 @@ def removecontinents(dataframe):
 
 
 def getvalueofrows(dataframe):
+    """
+    continents.
+    Args:
+        dataframe: the dataframe
+    Return:
+        info: a list of rows
+    """
     info = []
     indexlist = ["Asia", "Europe", "Africa", "Middle East", "World", "Upper middle income", "High income","North America", "Lower middle income"]
     for i in indexlist:
@@ -78,6 +85,8 @@ def getvalueofcomparison(dataframe, comparison, value=None):
 def addtoafile(data, flag):
     """
     write data to a .txt file
+    Args:
+        data: data to the file save 
     """
     with open('dailyreport.txt', str(flag)) as f:
         for i in data:
@@ -85,6 +94,7 @@ def addtoafile(data, flag):
 
 
 def main():
+    """ main function """
     df = createdataframe(FILENAME)
     df = cleardataframe(df)
     info = getvalueofrows(df)
