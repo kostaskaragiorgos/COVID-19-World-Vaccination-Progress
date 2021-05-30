@@ -55,7 +55,13 @@ def getvalueofrows(dataframe):
         info.append(str(dataframe.loc[dataframe['location'] == str(i)]))
     return info
 
-
+def mincomparison(info, index, dataframe, comparison):
+    for i in index:
+        if comparison == "min":
+            info.append(str(dataframe[dataframe[str(i)] == dataframe[str(i)].min()][str(i)]))
+        else:
+            info.append(str(dataframe[dataframe[str(i)] == dataframe[str(i)].max()][str(i)]))
+    return info
 
 def getvalueofcomparison(dataframe, comparison, value=None):
     """ removes rows from dataframe
@@ -69,11 +75,7 @@ def getvalueofcomparison(dataframe, comparison, value=None):
     info = []
     index = ["total_vaccinations",	"people_vaccinated",	"people_fully_vaccinated",	"daily_vaccinations_raw"	,"daily_vaccinations",	"total_vaccinations_per_hundred",	"people_vaccinated_per_hundred",	"people_fully_vaccinated_per_hundred",	"daily_vaccinations_per_million"]
     if value == None:
-        for i in index:
-            if comparison == "min":
-                info.append(str(dataframe[dataframe[str(i)] == dataframe[str(i)].min()][str(i)]))
-            else:
-                info.append(str(dataframe[dataframe[str(i)] == dataframe[str(i)].max()][str(i)]))
+        info = mincomparison(info, index, dataframe, comparison)
     else:
         for i in index:
             if comparison == "max":
