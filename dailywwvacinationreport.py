@@ -1,3 +1,4 @@
+from datetime import date
 import pandas as pd
 FILENAME = "vaccinations.csv"
 def createdataframe(filename):
@@ -29,7 +30,7 @@ def removecontinents(dataframe):
     """
     indexlist = ["Asia", "Europe", "Africa", "Middle East", "World", "Upper middle income", "High income","North America", "Lower middle income"]
     for i in indexlist:
-        dataframe.drop(dataframe[dataframe['location']== str(i)].index, inplace=True)
+        dataframe = dataframe.drop(dataframe[dataframe['location']== str(i)].index)
     return dataframe
 
 
@@ -61,17 +62,23 @@ def getvalueofcomparison(dataframe, comparison, value=None):
             info.append(str(dataframe[dataframe[str(i)] == dataframe[str(i)].comparison()][str(value)]))
     return info
 
-    def addtoafile(data):
-        """
-        write data to a .txt file
-        
-        """
+def addtoafile(data, flag):
+    """
+    write data to a .txt file
+    """
+    with open('ana.txt', str(flag)) as f:
+        for i in data:
+            f.writelines(i)
+
 
 def main():
     df = createdataframe(FILENAME)
     df = cleardataframe(df)
     print(df.head())
     info = getvalueofrows(df)
+    addtoafile(info, w)
+    df  = removecontinents(df)
+    print(df.head())
     print(info[0])
 
 if __name__=='__main__':
