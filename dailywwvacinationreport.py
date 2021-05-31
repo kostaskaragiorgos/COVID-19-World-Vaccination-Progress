@@ -117,7 +117,7 @@ def main():
     df = createdataframe(FILENAME)
     getvaccinationsplotforeverylocation(df)
     df = cleardataframe(df)
-    logging.info("plots has been successfully created")
+    logging.info("vaccinations plots has been successfully created")
     info = getvalueofrows(df)
     addtoafile(info, "w")
     df  = removecontinents(df)
