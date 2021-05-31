@@ -1,5 +1,6 @@
 from datetime import date
 import pandas as pd
+import matplotlib.pyplot as plt
 import logging
 import os
 
@@ -40,6 +41,12 @@ def removecontinents(dataframe):
         dataframe = dataframe.drop(dataframe[dataframe['location']== str(i)].index)
     return dataframe
 
+
+def getcontinentsplot(dataframe):
+    indexlist = ["Asia", "Europe", "Africa", "Middle East", "World", "Upper middle income", "High income","North America", "Lower middle income"]
+    for i in indexlist:
+        dataframe[dataframe['location']==str(i)].plot(figsize =(15,10),x='date',y=['total_vaccinations','people_vaccinated', 'people_fully_vaccinated' ], title="Vaccinations of "+str(i))
+        plt.savefig("Vaccinations of "+str(i)+".png")
 
 def getvalueofrows(dataframe):
     """
@@ -103,6 +110,7 @@ def addtoafile(data, flag):
 def main():
     """ main function """
     df = createdataframe(FILENAME)
+    getcontinentsplot(df)
     df = cleardataframe(df)
     info = getvalueofrows(df)
     addtoafile(info, "w")
