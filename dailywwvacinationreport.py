@@ -42,7 +42,12 @@ def removecontinents(dataframe):
     return dataframe
 
 
-def getcontinentsplot(dataframe):
+def getvaccinationsplotforeverylocation(dataframe):
+    """
+    Saves a Vaccinations plot for every location.
+    Args:
+        dataframe: a pandas dataframe
+    """
     indexlist = dataframe.location.unique().tolist()
     for i in indexlist:
         dataframe[dataframe['location']==str(i)].plot(figsize =(15,10),x='date',y=['total_vaccinations','people_vaccinated', 'people_fully_vaccinated' ], title="Vaccinations of "+str(i))
@@ -110,7 +115,7 @@ def addtoafile(data, flag):
 def main():
     """ main function """
     df = createdataframe(FILENAME)
-    getcontinentsplot(df)
+    getvaccinationsplotforeverylocation(df)
     df = cleardataframe(df)
     logging.info("plots has been successfully created")
     info = getvalueofrows(df)
