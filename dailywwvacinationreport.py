@@ -112,6 +112,7 @@ def main():
     df = createdataframe(FILENAME)
     getcontinentsplot(df)
     df = cleardataframe(df)
+    logging.info("plots has been successfully created")
     info = getvalueofrows(df)
     addtoafile(info, "w")
     df  = removecontinents(df)
