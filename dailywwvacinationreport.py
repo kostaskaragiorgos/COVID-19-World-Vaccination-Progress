@@ -46,7 +46,7 @@ def getcontinentsplot(dataframe):
     indexlist = ["Asia", "Europe", "Africa", "Middle East", "World", "Upper middle income", "High income","North America", "Lower middle income"]
     for i in indexlist:
         dataframe[dataframe['location']==str(i)].plot(figsize =(15,10),x='date',y=['total_vaccinations','people_vaccinated', 'people_fully_vaccinated' ], title="Vaccinations of "+str(i))
-        plt.savefig("Vaccinations of "+str(i)+".png")
+        plt.savefig("plots/Vaccinations of "+str(i)+".png")
 
 def getvalueofrows(dataframe):
     """
