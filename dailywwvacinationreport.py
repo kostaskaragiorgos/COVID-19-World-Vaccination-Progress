@@ -67,6 +67,15 @@ def getvalueofrows(dataframe):
     return info
 
 def novaluecomparison(info, index, dataframe, comparison):
+    """
+    Args:
+        info: a list
+        index: a list of index names
+        dataframe: a dataframe
+        comparison
+    Return:
+        info: a list
+    """
     for i in index:
         if comparison == "min":
             info.append(str(dataframe[dataframe[str(i)] == dataframe[str(i)].min()][str(i)]))
