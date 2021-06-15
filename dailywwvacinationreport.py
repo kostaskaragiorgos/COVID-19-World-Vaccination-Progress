@@ -78,18 +78,18 @@ def novaluecomparison(info, index, dataframe, comparison):
     """
     for i in index:
         if comparison == "min":
-            info.append(str(dataframe[dataframe[str(i)] == dataframe[str(i)].min()][str(i)].to_string(index=False)))
+            info.append(str(dataframe[dataframe[str(i)] == dataframe[str(i)].min()]["location"].to_string(index=False)) + str(dataframe[dataframe[str(i)] == dataframe[str(i)].min()][str(i)].to_string(index=False)))
         else:
-            info.append(str(dataframe[dataframe[str(i)] == dataframe[str(i)].max()][str(i)].to_string(index=False)))
+            info.append(str(dataframe[dataframe[str(i)] == dataframe[str(i)].min()]["location"].to_string(index=False)) + str(dataframe[dataframe[str(i)] == dataframe[str(i)].max()][str(i)].to_string(index=False)))
     return info
 
 
 def valuecomparison(info, index, dataframe, comparison, value):
     for i in index:
         if comparison == "max":
-            info.append(str(dataframe[dataframe[str(i)] == dataframe[str(i)].max()][str(value)].to_string(index=False)))
+            info.append(str(dataframe[dataframe[str(i)] == dataframe[str(i)].min()]["location"].to_string(index=False)) + str(dataframe[dataframe[str(i)] == dataframe[str(i)].max()][str(value)].to_string(index=False)))
         else:
-            info.append(str(dataframe[dataframe[str(i)] == dataframe[str(i)].min()][str(value)].to_string(index=False)))
+            info.append(str(dataframe[dataframe[str(i)] == dataframe[str(i)].min()]["location"].to_string(index=False)) + str(dataframe[dataframe[str(i)] == dataframe[str(i)].min()][str(value)].to_string(index=False)))
     return info
 
 def getvalueofcomparison(dataframe, comparison, value=None):
@@ -116,8 +116,7 @@ def addtoafile(data, flag):
         data: data to the file save 
     """
     with open('dailyreport.txt', flag) as f:
-        for i in data:
-            f.writelines(i)
+        f.writelines(data)
 
 
 def main():
@@ -127,12 +126,14 @@ def main():
     df = cleardataframe(df)
     logging.info("vaccinations plots has been successfully created")
     info = getvalueofrows(df)
+    
     addtoafile(info, "w")
     df = removecontinents(df)
     infosmin = getvalueofcomparison(df, min, value=None)
     addtoafile(infosmin, "a+")
     infosmax = getvalueofcomparison(df, max, value=None)
     addtoafile(infosmax, "a+")
+    print(infosmax)
     logging.info("dailyreport.txt has been successfully created")
     os.system("pause")
 
