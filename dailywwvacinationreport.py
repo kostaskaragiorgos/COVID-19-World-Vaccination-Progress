@@ -63,7 +63,7 @@ def getvalueofrows(dataframe):
     info = []
     indexlist = ["Asia", "Europe", "Africa", "Middle East", "World", "Upper middle income", "High income", "North America", "Lower middle income"]
     for i in indexlist:
-        info.append(str(dataframe.loc[dataframe['location'] == str(i)]))
+        info.append(str(dataframe.loc[dataframe['location'] == str(i)].to_string(index=False)))
     return info
 
 def novaluecomparison(info, index, dataframe, comparison):
@@ -78,18 +78,18 @@ def novaluecomparison(info, index, dataframe, comparison):
     """
     for i in index:
         if comparison == "min":
-            info.append(str(dataframe[dataframe[str(i)] == dataframe[str(i)].min()][str(i)]))
+            info.append(str(dataframe[dataframe[str(i)] == dataframe[str(i)].min()][str(i)].to_string(index=False)))
         else:
-            info.append(str(dataframe[dataframe[str(i)] == dataframe[str(i)].max()][str(i)]))
+            info.append(str(dataframe[dataframe[str(i)] == dataframe[str(i)].max()][str(i)].to_string(index=False)))
     return info
 
 
 def valuecomparison(info, index, dataframe, comparison, value):
     for i in index:
         if comparison == "max":
-            info.append(str(dataframe[dataframe[str(i)] == dataframe[str(i)].max()][str(value)]))
+            info.append(str(dataframe[dataframe[str(i)] == dataframe[str(i)].max()][str(value)].to_string(index=False)))
         else:
-            info.append(str(dataframe[dataframe[str(i)] == dataframe[str(i)].min()][str(value)]))
+            info.append(str(dataframe[dataframe[str(i)] == dataframe[str(i)].min()][str(value)].to_string(index=False)))
     return info
 
 def getvalueofcomparison(dataframe, comparison, value=None):
