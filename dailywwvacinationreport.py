@@ -85,6 +85,16 @@ def novaluecomparison(info, index, dataframe, comparison):
 
 
 def valuecomparison(info, index, dataframe, comparison, value):
+    """ min/max comparison based on value
+    Args:
+        info: list to fill
+        index: index list
+        dataframe: the dataframe
+        comparison: min/max
+        value: column name to compare
+    Returns:
+        info: list full of comparissons
+    """
     for i in index:
         if comparison == "max":
             info.append(str(dataframe[dataframe[str(i)] == dataframe[str(i)].min()]["location"].to_string(index=False)) + str(dataframe[dataframe[str(i)] == dataframe[str(i)].max()][str(value)].to_string(index=False)))
