@@ -14,7 +14,7 @@
 
 ## VACCINATIONS OF MIDDLE EAST
 
-<p><img src="plots/Vaccinations of Middle east.png" title="VACCINATIONS OF MIDDLE EAST"/> </p>
+<p><img src="plots/Vaccinations of Middle East.png" title="VACCINATIONS OF MIDDLE EAST"/> </p>
 
 ## VACCINATIONS OF THE WORLD
 
@@ -30,7 +30,7 @@
 
 ## VACCINATIONS OF NORTH AMERICA 
 
-<p><img src="plots/Vaccinations of North america.png" title="VACCINATIONS OF NORTH AMERICA"/> </p>
+<p><img src="plots/Vaccinations of North America.png" title="VACCINATIONS OF NORTH AMERICA"/> </p>
 
 ## VACCINATIONS OF LOWER MIDDLE INCOME
 
