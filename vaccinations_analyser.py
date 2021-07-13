@@ -1,10 +1,11 @@
-from tkinter import Menu, messagebox as msg, filedialog, Tk
+from tkinter import Menu, messagebox as msg, filedialog, Tk, simpledialog
 import csv
 import pandas as pd
 import matplotlib.pyplot as plt
 
-def userinput():
-    pass
+def userinput(titlel = "", promptl=""):
+    userinput = simpledialog.askstring(title=titlel, prompt=promptl)
+    return userinput
 
 def helpmenu():
     pass
