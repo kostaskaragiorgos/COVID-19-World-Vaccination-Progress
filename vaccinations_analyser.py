@@ -75,7 +75,7 @@ class Vaccinations_Analyser():
         if self.filename == "":
             msg.showerror("ERROR", "NO FILE IMPORTED")
         else:
-            pass
+            count = userinput(titlel="Country", promptl="Enter the name of the counntry")
 
     def vaccprossplotcontinent(self):
         """plots vaccination process of a continent based on user's input"""
