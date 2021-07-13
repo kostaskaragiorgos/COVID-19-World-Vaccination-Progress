@@ -82,7 +82,7 @@ class Vaccinations_Analyser():
         if self.filename == "":
             msg.showerror("ERROR", "NO FILE IMPORTED")
         else:
-            pass
+            cont = userinput(titlel="Continent", promptl="Enter the name of the continent")
 
     def exitmenu(self):
         if msg.askokcancel("Quit?", "Really quit?"):
