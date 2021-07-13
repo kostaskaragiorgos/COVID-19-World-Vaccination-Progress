@@ -3,6 +3,9 @@ import csv
 import pandas as pd
 import matplotlib.pyplot as plt
 
+def userinput():
+    pass
+
 class Vaccinations_Analyser():
     def __init__(self,master):
         self.master = master
