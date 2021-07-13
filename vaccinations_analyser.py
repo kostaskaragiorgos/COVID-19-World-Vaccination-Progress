@@ -27,7 +27,12 @@ class Vaccinations_Analyser():
         self.show_menu.add_command(label="Vaccination Process of A Country", command=self.vaccprossofacountry)
         self.menu.add_cascade(label="Show", menu=self.show_menu)
 
-        self.about_menu = Menu(self.menu,tearoff = 0)
+        self.plot_menu = Menu(self.menu, tearoff=0)
+        self.plot_menu.add_command(label="Vaccination Process of A Country", command=self.vaccprossplot)
+        self.menu.add_cascade(label="Plot", menu=self.plot_menu)
+
+
+        self.about_menu = Menu(self.menu, tearoff=0)
         self.about_menu.add_command(label = "About",accelerator= 'Ctrl+I',command=self.aboutmenu)
         self.menu.add_cascade(label="About",menu=self.about_menu)
         
@@ -47,6 +52,13 @@ class Vaccinations_Analyser():
         else:
             pass
     
+    def vaccprossplot(self):
+        """plots vaccination process of a country based on user's input"""
+        if self.filename == "":
+            msg.showerror("ERROR", "NO FILE IMPORTED")
+        else:
+            pass
+
     def exitmenu(self):
         if msg.askokcancel("Quit?", "Really quit?"):
             self.master.destroy()
