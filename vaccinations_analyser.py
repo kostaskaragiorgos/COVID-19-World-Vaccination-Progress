@@ -68,8 +68,15 @@ class Vaccinations_Analyser():
         else:
             pass
     
-    def vaccprossplot(self):
+    def vaccprossplotcountry(self):
         """plots vaccination process of a country based on user's input"""
+        if self.filename == "":
+            msg.showerror("ERROR", "NO FILE IMPORTED")
+        else:
+            pass
+
+    def vaccprossplotcontinent(self):
+        """plots vaccination process of a continent based on user's input"""
         if self.filename == "":
             msg.showerror("ERROR", "NO FILE IMPORTED")
         else:
