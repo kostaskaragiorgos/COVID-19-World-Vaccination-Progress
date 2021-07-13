@@ -31,6 +31,7 @@ class Vaccinations_Analyser():
         
         self.show_menu = Menu(self.menu, tearoff=0)
         self.show_menu.add_command(label="Vaccination Process of A Country", command=self.vaccprossofacountry)
+        self.show_menu.add_command(label="Vaccination Process of A Continent", command=self.vaccprossofacontinent)
         self.menu.add_cascade(label="Show", menu=self.show_menu)
 
         self.plot_menu = Menu(self.menu, tearoff=0)
@@ -50,6 +51,15 @@ class Vaccinations_Analyser():
         self.master.bind('<Alt-F4>',lambda event: self.exitmenu())
         self.master.bind('<Control-F1>',lambda event: helpmenu())
         self.master.bind('<Control-i>',lambda event: aboutmenu())
+
+    
+    def vaccprossofacontinent(self):
+        """vaccination process of a continent based on user's input"""
+        if self.filename == "":
+            msg.showerror("ERROR", "NO FILE IMPORTED")
+        else:
+            pass
+
     
     def vaccprossofacountry(self):
         """vaccination process of a country based on user's input"""
