@@ -20,6 +20,10 @@ class Vaccinations_Analyser():
         self.file_menu.add_command(label="Exit",accelerator= 'Alt+F4',command = self.exitmenu)
         self.menu.add_cascade(label = "File",menu=self.file_menu)
         
+        self.show_menu = Menu(self.menu, tearoff=0)
+        self.show_menu.add_command(label="Vaccination Process of A Country", command=self.vaccprossofacountry)
+        self.menu.add_cascade(label="Show", menu=self.show_menu)
+
         self.about_menu = Menu(self.menu,tearoff = 0)
         self.about_menu.add_command(label = "About",accelerator= 'Ctrl+I',command=self.aboutmenu)
         self.menu.add_cascade(label="About",menu=self.about_menu)
@@ -32,6 +36,13 @@ class Vaccinations_Analyser():
         self.master.bind('<Alt-F4>',lambda event: self.exitmenu())
         self.master.bind('<Control-F1>',lambda event: self.helpmenu())
         self.master.bind('<Control-i>',lambda event: self.aboutmenu())
+    
+    def vaccprossofacountry(self):
+        """vaccination process of a country based on user's input"""
+        if self.filename == "":
+            msg.showerror("ERROR", "NO FILE IMPORTED")
+        else:
+            pass
     
     def exitmenu(self):
         if msg.askokcancel("Quit?", "Really quit?"):
