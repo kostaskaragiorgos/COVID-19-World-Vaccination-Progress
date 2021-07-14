@@ -103,10 +103,16 @@ class Vaccinations_Analyser():
     
     def vaccprossofacountry(self):
         """vaccination process of a country based on user's input"""
+        flag = True
         if self.filename == "":
             msg.showerror("ERROR", "NO FILE IMPORTED")
         else:
             count = userinput(titlel="Country", promptl="Enter the name of the counntry")
+            flag = userinputvalidation(count, self.df['location'])
+            if flag:
+                pass
+            else:
+                msg.showerror("INVALID USER INPUT", "ENTER A VALID USER INPUT")
     
     def vaccprossplotcountry(self):
         """plots vaccination process of a country based on user's input"""
