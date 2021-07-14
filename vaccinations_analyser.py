@@ -7,8 +7,11 @@ def userinput(titlel = "", promptl=""):
     userinput = simpledialog.askstring(title=titlel, prompt=promptl)
     return userinput
 
-def userinputvalidation(userinput, validation):
-    pass
+def userinputvalidation(userinput="", validation=""):
+    ##while  not self.df['Country/Region'].str.contains(str(self.asked_country)).any():
+    if  not validation.str.contains(str(userinput)).any():
+        return False
+    
 
 def helpmenu():
     pass
@@ -89,6 +92,7 @@ class Vaccinations_Analyser():
             msg.showerror("ERROR", "NO FILE IMPORTED")
         else:
             cont = userinput(titlel="Continent", promptl="Enter the name of the continent")
+            f = userinputvalidation(cont, self.df['location'])
 
     
     def vaccprossofacountry(self):
