@@ -1,5 +1,6 @@
 from tkinter import Menu, messagebox as msg, filedialog, Tk, simpledialog
 import csv
+from numpy.lib.twodim_base import triu_indices_from
 import pandas as pd
 import matplotlib.pyplot as plt
 
@@ -87,7 +88,7 @@ class Vaccinations_Analyser():
             msg.showerror("ERROR", "NO PROPER CSV ")
 
     def vaccprossofacontinent(self):
-        flag = True
+
         """vaccination process of a continent based on user's input"""
         if self.filename == "":
             msg.showerror("ERROR", "NO FILE IMPORTED")
@@ -103,7 +104,7 @@ class Vaccinations_Analyser():
     
     def vaccprossofacountry(self):
         """vaccination process of a country based on user's input"""
-        flag = True
+
         if self.filename == "":
             msg.showerror("ERROR", "NO FILE IMPORTED")
         else:
@@ -116,10 +117,16 @@ class Vaccinations_Analyser():
     
     def vaccprossplotcountry(self):
         """plots vaccination process of a country based on user's input"""
+
         if self.filename == "":
             msg.showerror("ERROR", "NO FILE IMPORTED")
         else:
             count = userinput(titlel="Country", promptl="Enter the name of the counntry")
+            flag = userinputvalidation(count, self.df['location'])
+            if flag:
+                pass
+            else:
+                msg.showerror("INVALID USER INPUT", "ENTER A VALID USER INPUT")
 
     def vaccprossplotcontinent(self):
         """plots vaccination process of a continent based on user's input"""
@@ -127,6 +134,11 @@ class Vaccinations_Analyser():
             msg.showerror("ERROR", "NO FILE IMPORTED")
         else:
             cont = userinput(titlel="Continent", promptl="Enter the name of the continent")
+            flag = userinputvalidation(cont, self.df['location'])
+            if flag:
+                pass
+            else:
+                msg.showerror("INVALID USER INPUT", "ENTER A VALID USER INPUT")
 
     def exitmenu(self):
         if msg.askokcancel("Quit?", "Really quit?"):
