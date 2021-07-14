@@ -103,7 +103,6 @@ class Vaccinations_Analyser():
             msg.showerror("ERROR", "NO PROPER CSV ")
 
     def vaccprossofacontinent(self):
-
         """vaccination process of a continent based on user's input"""
         if self.filename == "":
             msg.showerror("ERROR", "NO FILE IMPORTED")
@@ -125,7 +124,7 @@ class Vaccinations_Analyser():
             count = userinput(titlel="Country", promptl="Enter the name of the counntry")
             flag = userinputvalidation(count, self.df['location'])
             if flag:
-                pass
+                msg.showinfo("Vaccination Process", self.df.loc[self.df['location']==count].to_string())
             else:
                 msg.showerror("INVALID USER INPUT", "ENTER A VALID USER INPUT")
     
