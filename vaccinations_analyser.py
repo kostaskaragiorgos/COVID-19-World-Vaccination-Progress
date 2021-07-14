@@ -77,8 +77,7 @@ class Vaccinations_Analyser():
                                                      'people_vaccinated_per_hundred',
                                                      'people_fully_vaccinated_per_hundred',
                                                      'daily_vaccinations_per_million']]):
-            #self.df.drop_duplicates(subset='Country/Region', keep='last', inplace=True)
-            #self.df['Country/Region'] = self.df['Country/Region'].astype("string")
+            self.df.drop_duplicates(subset='location', keep='last', inplace=True)
             msg.showinfo("SUCCESS", "CSV FILE ADDED SUCCESSFULLY")
         else:
             self.filename = ""
