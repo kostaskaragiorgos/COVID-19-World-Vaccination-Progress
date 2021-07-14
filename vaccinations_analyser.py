@@ -12,6 +12,8 @@ def userinputvalidation(userinput="", validation=""):
     ##while  not self.df['Country/Region'].str.contains(str(self.asked_country)).any():
     if  not validation.str.contains(str(userinput)).any():
         return False
+    else:
+        return True
     
 
 def helpmenu():
@@ -104,7 +106,6 @@ class Vaccinations_Analyser():
     
     def vaccprossofacountry(self):
         """vaccination process of a country based on user's input"""
-
         if self.filename == "":
             msg.showerror("ERROR", "NO FILE IMPORTED")
         else:
