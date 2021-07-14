@@ -8,9 +8,15 @@ def userinput(titlel = "", promptl=""):
     userinput = simpledialog.askstring(title=titlel, prompt=promptl)
     return userinput
 
-def userinputvalidation(userinput="", validation=""):
-    ##while  not self.df['Country/Region'].str.contains(str(self.asked_country)).any():
-    if  not validation.str.contains(str(userinput)).any():
+def userinputvalidation(userinput="", colomnname=""):
+    """vadidates the user's input
+    Args:
+        userinput: the user input
+        colomnname: the name of the dataset's column
+    Returns:
+        flag: boolean value if the column contains the user input 
+    """
+    if  not colomnname.str.contains(str(userinput)).any():
         return False
     else:
         return True
