@@ -7,6 +7,9 @@ def userinput(titlel = "", promptl=""):
     userinput = simpledialog.askstring(title=titlel, prompt=promptl)
     return userinput
 
+def userinputvalidation(userinput, validation):
+    pass
+
 def helpmenu():
     pass
 
