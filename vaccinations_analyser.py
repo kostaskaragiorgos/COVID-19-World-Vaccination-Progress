@@ -57,7 +57,15 @@ class Vaccinations_Analyser():
         self.master.bind('<Control-F1>',lambda event: helpmenu())
         self.master.bind('<Control-i>',lambda event: aboutmenu())
 
-    
+    def file_input_validation(self):
+        """ user input validation """
+        if ".csv" in self.filename:
+            self.df = pd.read_csv(self.filename)
+            self.check_columns()
+        else:
+            self.filename = ""
+            msg.showerror("ERROR", "NO CSV IMPORTED")
+
     def vaccprossofacontinent(self):
         """vaccination process of a continent based on user's input"""
         if self.filename == "":
@@ -103,6 +111,7 @@ class Vaccinations_Analyser():
             self.filename = filedialog.askopenfilename(initialdir="/", title="Select csv file",
                                                        filetypes=(("csv files", "*.csv"),
                                                                   ("all files", "*.*")))
+            self.file_input_validation()
         else:
             msg.showerror("ERROR", "A CSV FILE IS ALREADY OPEN")
 
