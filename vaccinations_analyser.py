@@ -55,6 +55,8 @@ class Vaccinations_Analyser():
         self.show_menu = Menu(self.menu, tearoff=0)
         self.show_menu.add_command(label="Vaccination Process of A Country", command=self.vaccprossofacountry)
         self.show_menu.add_command(label="Vaccination Process of A Continent", command=self.vaccprossofacontinent)
+        self.show_menu.add_command(label="Total Vaccinations of A Country")
+        self.show_menu.add_command(label="Fully Vaccinatied of A Country")
         self.menu.add_cascade(label="Show", menu=self.show_menu)
 
         self.plot_menu = Menu(self.menu, tearoff=0)
