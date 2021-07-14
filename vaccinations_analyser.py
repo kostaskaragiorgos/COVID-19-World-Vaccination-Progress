@@ -55,8 +55,8 @@ class Vaccinations_Analyser():
         self.show_menu = Menu(self.menu, tearoff=0)
         self.show_menu.add_command(label="Vaccination Process of A Country", command=self.vaccprossofacountry)
         self.show_menu.add_command(label="Vaccination Process of A Continent", command=self.vaccprossofacontinent)
-        self.show_menu.add_command(label="Total Vaccinations of A Country")
-        self.show_menu.add_command(label="Fully Vaccinatied of A Country")
+        self.show_menu.add_command(label="Total Vaccinations of A Country", command= lambda: self.show_vaccination())
+        self.show_menu.add_command(label="Fully Vaccinatied of A Country",command= lambda: self.show_vaccination(True))
         self.menu.add_cascade(label="Show", menu=self.show_menu)
 
         self.plot_menu = Menu(self.menu, tearoff=0)
@@ -86,12 +86,12 @@ class Vaccinations_Analyser():
         if self.filename == "":
             msg.showerror("ERROR", "NO FILE IMPORTED")
         else:
-            cont = userinput(titlel="Continent", promptl="Enter the name of the continent")
-            flag = userinputvalidation(cont, self.df['location'])
+            count = userinput(titlel="Country", promptl="Enter the name of the counntry")
+            flag = userinputvalidation(count, self.df['location'])
             if flag and fully:
-                pass
+                msg.showinfo("FULLY VACCINATED",  self.df.loc[self.df['location']==count]['people_fully_vaccinated'].to_string())
             elif flag and fully is False:
-                pass
+                msg.showinfo("TOTAL VACCINATED",  self.df.loc[self.df['location']==count]['total_vaccinations'].to_string())
             else:
                 msg.showerror("INVALID USER INPUT", "ENTER A VALID USER INPUT")
 
