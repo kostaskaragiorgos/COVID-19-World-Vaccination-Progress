@@ -5,6 +5,13 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 def userinput(titlel = "", promptl=""):
+    """gets the user's input
+    Args:
+        titlel: the dialog window title
+        promptl: the dialog window message
+    Returns:
+        userinput: the user's input 
+    """
     userinput = simpledialog.askstring(title=titlel, prompt=promptl)
     return userinput
 
