@@ -77,6 +77,20 @@ class Vaccinations_Analyser():
         self.master.bind('<Alt-F4>',lambda event: self.exitmenu())
         self.master.bind('<Control-F1>',lambda event: helpmenu())
         self.master.bind('<Control-i>',lambda event: aboutmenu())
+    
+    def show_vaccination(self, fully=False):
+        if self.filename == "":
+            msg.showerror("ERROR", "NO FILE IMPORTED")
+        else:
+            cont = userinput(titlel="Continent", promptl="Enter the name of the continent")
+            flag = userinputvalidation(cont, self.df['location'])
+            if flag and fully:
+                pass
+            elif flag and fully is False:
+                pass
+            else:
+                msg.showerror("INVALID USER INPUT", "ENTER A VALID USER INPUT")
+
 
     def file_input_validation(self):
         """ user input validation """
