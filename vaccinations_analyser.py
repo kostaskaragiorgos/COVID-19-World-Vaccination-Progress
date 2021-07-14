@@ -66,6 +66,24 @@ class Vaccinations_Analyser():
             self.filename = ""
             msg.showerror("ERROR", "NO CSV IMPORTED")
 
+    def check_columns(self):
+        """ checks the columns name from the importrd .csv file """
+        if all([item in self.df.columns for item in ['location',
+                                                     'iso_code',
+                                                     'date', 'total_vaccinations',
+                                                     'people_vaccinated', 'people_fully_vaccinated',
+                                                     'daily_vaccinations_raw', 'daily_vaccinations',
+                                                     'total_vaccinations_per_hundred',
+                                                     'people_vaccinated_per_hundred',
+                                                     'people_fully_vaccinated_per_hundred',
+                                                     'daily_vaccinations_per_million']]):
+            #self.df.drop_duplicates(subset='Country/Region', keep='last', inplace=True)
+            #self.df['Country/Region'] = self.df['Country/Region'].astype("string")
+            msg.showinfo("SUCCESS", "CSV FILE ADDED SUCCESSFULLY")
+        else:
+            self.filename = ""
+            msg.showerror("ERROR", "NO PROPER CSV ")
+
     def vaccprossofacontinent(self):
         """vaccination process of a continent based on user's input"""
         if self.filename == "":
