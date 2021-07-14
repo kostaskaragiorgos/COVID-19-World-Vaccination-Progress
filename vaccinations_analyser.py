@@ -79,6 +79,10 @@ class Vaccinations_Analyser():
         self.master.bind('<Control-i>',lambda event: aboutmenu())
     
     def show_vaccination(self, fully=False):
+        """shows the number of vaccinations total/fully
+        Args:
+            fully: a flag that determines which dataset column to use
+        """
         if self.filename == "":
             msg.showerror("ERROR", "NO FILE IMPORTED")
         else:
