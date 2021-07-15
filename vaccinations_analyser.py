@@ -177,12 +177,15 @@ class Vaccinations_Analyser():
         if self.filename == "":
             msg.showerror("ERROR", "NO FILE IMPORTED")
         else:
+            self.df = pd.read_csv(self.filename)
             count = userinput(titlel="Country", promptl="Enter the name of the counntry")
             flag = userinputvalidation(count, self.df['location'])
             if flag:
-                pass
+                self.df[self.df['location']== count].plot(figsize=(15, 10), x='date', y=['total_vaccinations','people_vaccinated','people_fully_vaccinated','daily_vaccinations_raw','daily_vaccinations','total_vaccinations_per_hundred','people_vaccinated_per_hundred','people_fully_vaccinated_per_hundred','daily_vaccinations_per_million'], title="Total Vaccinations of "+count, ylabel="Number of Total Vaccinations")
+                plt.show()
             else:
                 msg.showerror("INVALID USER INPUT", "ENTER A VALID USER INPUT")
+            self.df.drop_duplicates(subset='location', keep='last', inplace=True)
 
     def vaccprossplotcontinent(self):
         """plots vaccination process of a continent based on user's input"""
