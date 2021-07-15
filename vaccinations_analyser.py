@@ -90,7 +90,12 @@ class Vaccinations_Analyser():
             if flag and fully:
                 self.df[self.df['location']== count].plot(figsize=(15, 10), x='date', y=['people_fully_vaccinated'], title="Vaccinations of "+count, ylabel="Number of Fully Vaccinated People")
                 plt.show()
+            elif flag and fully is False:
+                self.df[self.df['location']== count].plot(figsize=(15, 10), x='date', y=['total_vaccinations'], title="Vaccinations of "+count, ylabel="Number of Total Vaccinations")
+                plt.show()
+
             self.df.drop_duplicates(subset='location', keep='last', inplace=True)
+        
     def show_vaccination(self, fully=False):
         """shows the number of vaccinations total/fully
         Args:
