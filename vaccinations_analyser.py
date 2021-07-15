@@ -1,8 +1,11 @@
 from tkinter import Menu, messagebox as msg, filedialog, Tk, simpledialog
 import csv
-from numpy.lib.twodim_base import triu_indices_from
 import pandas as pd
 import matplotlib.pyplot as plt
+
+def saveplot():
+    pass
+
 
 def userinput(titlel = "", promptl=""):
     """gets the user's input
