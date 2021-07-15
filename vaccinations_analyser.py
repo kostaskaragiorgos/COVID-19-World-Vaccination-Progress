@@ -97,7 +97,7 @@ class Vaccinations_Analyser():
             if flag and fully:
                 self.df[self.df['location']== count].plot(figsize=(15, 10), x='date', y=['people_fully_vaccinated'], title="Vaccinations of "+count, ylabel="Number of Fully Vaccinated People")
                 plt.show()
-            elif flag and fully is False:
+            elif flag:
                 self.df[self.df['location']== count].plot(figsize=(15, 10), x='date', y=['total_vaccinations'], title="Vaccinations of "+count, ylabel="Number of Total Vaccinations")
                 plt.show()
             else:
@@ -116,7 +116,7 @@ class Vaccinations_Analyser():
             flag = userinputvalidation(count, self.df['location'])
             if flag and fully:
                 msg.showinfo("FULLY VACCINATED",  self.df.loc[self.df['location']==count]['people_fully_vaccinated'].to_string())
-            elif flag and fully is False:
+            elif flag:
                 msg.showinfo("TOTAL VACCINATED",  self.df.loc[self.df['location']==count]['total_vaccinations'].to_string())
             else:
                 msg.showerror("INVALID USER INPUT", "ENTER A VALID USER INPUT")
