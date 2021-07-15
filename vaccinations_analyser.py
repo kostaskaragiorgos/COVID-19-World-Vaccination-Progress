@@ -62,8 +62,8 @@ class Vaccinations_Analyser():
         self.plot_menu = Menu(self.menu, tearoff=0)
         self.plot_menu.add_command(label="Vaccination Process of A Country", command=self.vaccprossplotcountry)
         self.plot_menu.add_command(label="Vaccination Process of A Continent", command=self.vaccprossplotcontinent)
-        self.plot_menu.add_command(label="Total Vaccinations of A Country", )
-        self.plot_menu.add_command(label="Fully Vaccinatied of A Country",)
+        self.plot_menu.add_command(label="Total Vaccinations of A Country", command= lambda: self.plot_vaccination())
+        self.plot_menu.add_command(label="Fully Vaccinatied of A Country", command= lambda: self.plot_vaccination(True))
         self.menu.add_cascade(label="Plot", menu=self.plot_menu)
 
 
@@ -80,6 +80,17 @@ class Vaccinations_Analyser():
         self.master.bind('<Control-F1>',lambda event: helpmenu())
         self.master.bind('<Control-i>',lambda event: aboutmenu())
     
+    def plot_vaccination(self, fully=False):
+        if self.filename == "":
+            msg.showerror("ERROR", "NO FILE IMPORTED")
+        else:
+            self.df = pd.read_csv(self.filename)
+            count = userinput(titlel="Country", promptl="Enter the name of the counntry")
+            flag = userinputvalidation(count, self.df['location'])
+            if flag and fully:
+                self.df[self.df['location']== count].plot(figsize=(15, 10), x='date', y=['people_fully_vaccinated'], title="Vaccinations of "+count, ylabel="Number of Fully Vaccinated People")
+                plt.show()
+            self.df.drop_duplicates(subset='location', keep='last', inplace=True)
     def show_vaccination(self, fully=False):
         """shows the number of vaccinations total/fully
         Args:
