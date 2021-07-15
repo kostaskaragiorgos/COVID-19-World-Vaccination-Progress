@@ -93,7 +93,8 @@ class Vaccinations_Analyser():
             elif flag and fully is False:
                 self.df[self.df['location']== count].plot(figsize=(15, 10), x='date', y=['total_vaccinations'], title="Vaccinations of "+count, ylabel="Number of Total Vaccinations")
                 plt.show()
-
+            else:
+                msg.showerror("INVALID USER INPUT", "ENTER A VALID USER INPUT")
             self.df.drop_duplicates(subset='location', keep='last', inplace=True)
         
     def show_vaccination(self, fully=False):
