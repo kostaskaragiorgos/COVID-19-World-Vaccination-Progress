@@ -3,9 +3,6 @@ import csv
 import pandas as pd
 import matplotlib.pyplot as plt
 
-def saveplot(imagename = ""):
-    ans = msg.askyesno("Save Plot", "Do you want to save the plot?")
-    return ans, imagename
 
 def userinput(titlel = "", promptl=""):
     """gets the user's input
@@ -97,15 +94,9 @@ class Vaccinations_Analyser():
             if flag and fully:
                 self.df[self.df['location']== count].plot(figsize=(15, 10), x='date', y=['people_fully_vaccinated'], title="Fully Vaccinated People of "+count, ylabel="Number of Fully Vaccinated People")
                 plt.show()
-                ans, imagename = saveplot("Fully Vaccinated People of "+count)
-                if ans:
-                    plt.savefig("plots/"+ imagename)
             elif flag:
                 self.df[self.df['location']== count].plot(figsize=(15, 10), x='date', y=['total_vaccinations'], title="Total Vaccinations of "+count, ylabel="Number of Total Vaccinations")
                 plt.show()
-                ans, imagename = saveplot("Total Vaccinations of "+count)
-                if ans:
-                    plt.savefig("plots/"+ imagename)
             else:
                 msg.showerror("INVALID USER INPUT", "ENTER A VALID USER INPUT")
             self.df.drop_duplicates(subset='location', keep='last', inplace=True)
