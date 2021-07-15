@@ -23,7 +23,7 @@ def userinputvalidation(userinput="", colomnname=""):
     Returns:
         flag: boolean value if the column contains the user input 
     """
-    if  not colomnname.str.contains(str(userinput)).any():
+    if  not colomnname.str.contains(str(userinput)).any() or userinput=="":
         return False
     else:
         return True
