@@ -81,6 +81,7 @@ class Vaccinations_Analyser():
         self.master.bind('<Alt-F4>',lambda event: self.exitmenu())
         self.master.bind('<Control-F1>',lambda event: helpmenu())
         self.master.bind('<Control-i>',lambda event: aboutmenu())
+        self.master.bind('<Alt-t>', lambda event: self.show_vaccination())
         self.master.bind('<Alt-p>', lambda event: self.plot_vaccination())
         self.master.bind('<Control-p>', lambda event: self.plot_vaccination(True))
     
