@@ -30,7 +30,7 @@ def userinputvalidation(userinput="", colomnname=""):
     
 
 def helpmenu():
-    pass
+    msg.showinfo("Help", "Insert a .csv file and find info about the vaccination process")
 
 def aboutmenu():
     msg.showinfo("About", "VACCINATIONS ANALYSER\nVERSION 1.0")
@@ -63,7 +63,7 @@ class Vaccinations_Analyser():
         self.plot_menu.add_command(label="Vaccination Process of A Country", command=self.vaccprossplotcountry)
         self.plot_menu.add_command(label="Vaccination Process of A Continent", command=self.vaccprossplotcontinent)
         self.plot_menu.add_command(label="Total Vaccinations of A Country", command= lambda: self.plot_vaccination())
-        self.plot_menu.add_command(label="Fully Vaccinatied of A Country", command= lambda: self.plot_vaccination(True))
+        self.plot_menu.add_command(label="Fully Vaccinatied of A Country", accelerator='Ctrl+P', command= lambda: self.plot_vaccination(True))
         self.menu.add_cascade(label="Plot", menu=self.plot_menu)
 
 
