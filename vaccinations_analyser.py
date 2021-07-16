@@ -62,7 +62,7 @@ class Vaccinations_Analyser():
         self.plot_menu = Menu(self.menu, tearoff=0)
         self.plot_menu.add_command(label="Vaccination Process of A Country", command=self.vaccprossplotcountry)
         self.plot_menu.add_command(label="Vaccination Process of A Continent", command=self.vaccprossplotcontinent)
-        self.plot_menu.add_command(label="Total Vaccinations of A Country", command= lambda: self.plot_vaccination())
+        self.plot_menu.add_command(label="Total Vaccinations of A Country", accelerator='Alt-p', command= lambda: self.plot_vaccination())
         self.plot_menu.add_command(label="Fully Vaccinatied of A Country", accelerator='Ctrl+P', command= lambda: self.plot_vaccination(True))
         self.menu.add_cascade(label="Plot", menu=self.plot_menu)
 
@@ -81,6 +81,7 @@ class Vaccinations_Analyser():
         self.master.bind('<Alt-F4>',lambda event: self.exitmenu())
         self.master.bind('<Control-F1>',lambda event: helpmenu())
         self.master.bind('<Control-i>',lambda event: aboutmenu())
+        self.master.bind('<Alt-p>', lambda event: self.plot_vaccination())
         self.master.bind('<Control-p>', lambda event: self.plot_vaccination(True))
     
     def plot_vaccination(self, fully=False):
