@@ -79,6 +79,7 @@ class Vaccinations_Analyser():
         self.master.bind('<Alt-F4>',lambda event: self.exitmenu())
         self.master.bind('<Control-F1>',lambda event: helpmenu())
         self.master.bind('<Control-i>',lambda event: aboutmenu())
+        self.master.bind('<Control-p>', lambda event: self.plot_vaccination(True))
     
     def plot_vaccination(self, fully=False):
         """plots the number of vaccinations total/fully
