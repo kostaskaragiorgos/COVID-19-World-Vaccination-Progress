@@ -76,6 +76,8 @@ class Vaccinations_Analyser():
         self.menu.add_cascade(label="Help",menu=self.help_menu)
         
         self.master.config(menu=self.menu)
+        self.master.bind('<Control-o>', lambda event: self.insert_csv())
+        self.master.bind('<Control-F4>', lambda event: self.closefile())
         self.master.bind('<Alt-F4>',lambda event: self.exitmenu())
         self.master.bind('<Control-F1>',lambda event: helpmenu())
         self.master.bind('<Control-i>',lambda event: aboutmenu())
