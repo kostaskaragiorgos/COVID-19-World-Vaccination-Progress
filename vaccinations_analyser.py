@@ -56,7 +56,7 @@ class Vaccinations_Analyser():
         self.show_menu.add_command(label="Vaccination Process of A Country", command=self.vaccprossofacountry)
         self.show_menu.add_command(label="Vaccination Process of A Continent", command=self.vaccprossofacontinent)
         self.show_menu.add_command(label="Total Vaccinations of A Country", command= lambda: self.show_vaccination())
-        self.show_menu.add_command(label="Fully Vaccinatied of A Country",command= lambda: self.show_vaccination(True))
+        self.show_menu.add_command(label="Fully Vaccinatied of A Country", command= lambda: self.show_vaccination(True))
         self.menu.add_cascade(label="Show", menu=self.show_menu)
 
         self.plot_menu = Menu(self.menu, tearoff=0)
@@ -116,9 +116,11 @@ class Vaccinations_Analyser():
             count = userinput(titlel="Country", promptl="Enter the name of the counntry")
             flag = userinputvalidation(count, self.df['location'])
             if flag and fully:
-                msg.showinfo("FULLY VACCINATED",  self.df.loc[self.df['location']==count]['people_fully_vaccinated'].to_string())
+                msg.showinfo("FULLY VACCINATED","The are " + self.df.loc[self.df['location']==count]['people_fully_vaccinated'].to_string(index=False) + 
+                            " fully vaccinated people in " + count)
             elif flag:
-                msg.showinfo("TOTAL VACCINATED",  self.df.loc[self.df['location']==count]['total_vaccinations'].to_string())
+                msg.showinfo("TOTAL VACCINATED", "There are "+ self.df.loc[self.df['location']==count]['total_vaccinations'].to_string(index=False)+
+                            " total vaccinations in " + count)
             else:
                 msg.showerror("INVALID USER INPUT", "ENTER A VALID USER INPUT")
 
