@@ -13,6 +13,9 @@
 
 <p><img src ="images/vaccinations analyser version.png" title = "Vaccinations Analyser Version"/> </p>
 
+## Documentation
+
+All project documentation is located in the `./doc`  folder.
 
 ## VACCINATIONS OF ASIA
 
