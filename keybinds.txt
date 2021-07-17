@@ -4,6 +4,13 @@ Insert a csv file Ctrl+O
 Close file Ctrl+F4
 Exit Alt+F4
 ============
+Show menu
+=====================================
+Total Vaccinations of A Country Alt+T
+Fully Vaccinated of A Country Ctrl+T
+=====================================
+
+===========
 About menu
 ============
 About Ctrl+I
