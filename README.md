@@ -45,6 +45,10 @@ All project documentation is located in the `./doc`  folder.
   <li> Exit(Alt+F4) </li>
   <li> Total Vaccinations of A Country(Alt+T) </li>
   <li> Fully Vaccinated of A Country(Ctrl+T) </li>
+  <li> Vaccination Process of A country(Ctrl+Y) </li>
+  <li> Vaccination Process of A continent(Alt+Y) </li>
+  <li> Total Vaccinations of A Country(Alt+P) </li>
+  <li> Fully Vaccinated of A Country(Ctrl+P) </li>
   <li> About(Ctrl+I)</li>
   <li> Help(Ctrl+F1)</li>
 </ul>
