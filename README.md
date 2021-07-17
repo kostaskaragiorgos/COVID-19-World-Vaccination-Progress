@@ -43,6 +43,8 @@ All project documentation is located in the `./doc`  folder.
   <li> Insert a csv file(Ctrl+O)</li>
   <li> Close file(Ctrl+F4) </li>
   <li> Exit(Alt+F4) </li>
+  <li> Total Vaccinations of A Country(Alt+T) </li>
+  <li> Fully Vaccinated of A Country(Ctrl+T) </li>
   <li> About(Ctrl+I)</li>
   <li> Help(Ctrl+F1)</li>
 </ul>
