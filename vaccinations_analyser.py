@@ -30,6 +30,7 @@ def userinputvalidation(userinput="", colomnname=""):
     
 
 def helpmenu():
+    """help menu function"""
     msg.showinfo("Help", "Insert a .csv file and find info about the vaccination process")
 
 def aboutmenu():
