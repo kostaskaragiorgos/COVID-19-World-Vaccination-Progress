@@ -9,6 +9,8 @@
 
 ## vaccinations analyser
 
+
+
 ## VACCINATIONS OF ASIA
 
 <p><img src="plots/Vaccinations of Asia.png" title="VACCINATIONS OF ASIA"/> </p>
@@ -55,6 +57,23 @@
   <li> ./plots </li>
   <li> keybinds.txt </li>
 </ul>
+
+## Dependencies
+
+To install the dependencies
+
+ <ul>
+   <li> pandas (conda install -c anaconda pandas) </li>
+   <li> second way to install pandas (pip install pandas) </li>
+   <li> radon (conda install -c conda-forge radon) </li> 
+   <li> second way to install radon (pip install radon) </li>
+</ul>
+
+or run
+
+```shell
+pip install -r requirements.txt
+```
 
 ## Radon
 
