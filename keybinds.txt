@@ -9,8 +9,13 @@ Show menu
 Total Vaccinations of A Country Alt+T
 Fully Vaccinated of A Country Ctrl+T
 =====================================
-
-===========
+Plot menu
+===========================================
+Vaccination Process of A country Ctrl + Y
+Vaccination Process of A continent Alt + Y
+Total Vaccinations of A Country Alt + P
+Fully Vaccinated of A Country Ctrl+P
+===========================================
 About menu
 ============
 About Ctrl+I
