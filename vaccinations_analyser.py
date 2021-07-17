@@ -34,6 +34,7 @@ def helpmenu():
     msg.showinfo("Help", "Insert a .csv file and find info about the vaccination process")
 
 def aboutmenu():
+    """about menu function"""
     msg.showinfo("About", "VACCINATIONS ANALYSER\nVERSION 1.0")
 
 class Vaccinations_Analyser():
