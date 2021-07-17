@@ -17,6 +17,17 @@
 
 All project documentation is located in the `./doc`  folder.
 
+## Keybinds
+
+ <ul>
+  <li> Insert a csv file(Ctrl+O)</li>
+  <li> Close file(Ctrl+F4) </li>
+  <li> Exit(Alt+F4) </li>
+  <li> About(Ctrl+I)</li>
+  <li> Help(Ctrl+F1)</li>
+</ul>
+
+
 ## VACCINATIONS OF ASIA
 
 <p><img src="plots/Vaccinations of Asia.png" title="VACCINATIONS OF ASIA"/> </p>
