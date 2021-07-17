@@ -27,6 +27,12 @@ All project documentation is located in the `./doc`  folder.
 
 <p><img src = "images/vaccinations analyser radon hal.png" title = "Radon hal"/> </p>
 
+### Radon_mi
+
+<p><img src = "images/vaccinations analyser radon mi.png" title = "Radon mi"/> </p>
+
+
+
 ## Keybinds
 
  <ul>
