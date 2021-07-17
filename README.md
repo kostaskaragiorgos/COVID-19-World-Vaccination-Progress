@@ -9,6 +9,9 @@
 
 ## vaccinations analyser
 
+## Current_Version
+
+<p><img src ="images/vaccinations analyser version.png" title = "Vaccinations Analyser Version"/> </p>
 
 
 ## VACCINATIONS OF ASIA
