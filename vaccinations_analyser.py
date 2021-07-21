@@ -25,10 +25,11 @@ def userinputvalidation(userinput="", colomnname="", continentf=False):
         continent flag: boolean value if the user input is a name of a continent
     """
     indexlist = ["Asia", "Europe", "Africa", "Middle East", "World", "Upper middle income", "High income", "North America", "Lower middle income"]
-    print(type(colomnname))
     if userinput in indexlist and continentf:
         return True, True
-    elif userinput in colomnname and not continentf:
+    elif userinput  in indexlist and not continentf:
+        return False, False
+    elif colomnname.str.contains(str(userinput)).any() and not continentf:
         return True, False
     else:
         return False, False
@@ -110,7 +111,6 @@ class Vaccinations_Analyser():
             self.df = pd.read_csv(self.filename)
             count = userinput(titlel="Country", promptl="Enter the name of the counntry")
             inputflag, continentflag = userinputvalidation(count, self.df['location'], False)
-            print(inputflag, continentflag)
             if inputflag and fully and not continentflag:
                 self.df[self.df['location']== count].plot(figsize=(15, 10), x='date', y=['people_fully_vaccinated'], title="Fully Vaccinated People of "+count, ylabel="Number of Fully Vaccinated People")
                 plt.show()
@@ -130,7 +130,7 @@ class Vaccinations_Analyser():
             msg.showerror("ERROR", "NO FILE IMPORTED")
         else:
             count = userinput(titlel="Country", promptl="Enter the name of the counntry")
-            inputflag, continentflag = userinputvalidation(count, self.df['location'])
+            inputflag, continentflag = userinputvalidation(count, self.df['location'], True)
             if inputflag and fully and not continentflag:
                 msg.showinfo("FULLY VACCINATED","The are " + self.df.loc[self.df['location']==count]['people_fully_vaccinated'].to_string(index=False) + 
                             " fully vaccinated people in " + count)
@@ -173,9 +173,9 @@ class Vaccinations_Analyser():
             msg.showerror("ERROR", "NO FILE IMPORTED")
         else:
             cont = userinput(titlel="Continent", promptl="Enter the name of the continent")
-            flag = userinputvalidation(cont, self.df['location'])
-            if flag:
-                pass
+            inputflag, contentflag = userinputvalidation(cont, self.df['location'], True)
+            if inputflag and contentflag:
+                msg.showinfo("Vaccination Process", self.df.loc[self.df['location']==cont].to_string())
             else:
                 msg.showerror("INVALID USER INPUT", "ENTER A VALID USER INPUT")
 
