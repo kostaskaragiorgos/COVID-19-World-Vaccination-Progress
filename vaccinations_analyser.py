@@ -27,7 +27,15 @@ def userinputvalidation(userinput="", colomnname=""):
         return False
     else:
         return True
-    
+
+
+def contuserinputvalidation(userinput="", columnname = ""):
+    indexlist = ["Asia", "Europe", "Africa", "Middle East", "World", "Upper middle income", "High income", "North America", "Lower middle income"]
+    if  not columnname.str.contains(str(userinput)).any() or userinput=="" and userinput not in indexlist:
+        return False
+    else:
+        return True
+
 
 def helpmenu():
     """help menu function"""
