@@ -25,12 +25,13 @@ def userinputvalidation(userinput="", colomnname="", continentf=False):
         continent flag: boolean value if the user input is a name of a continent
     """
     indexlist = ["Asia", "Europe", "Africa", "Middle East", "World", "Upper middle income", "High income", "North America", "Lower middle income"]
-    if  userinput not in colomnname and userinput not in indexlist:
-        return False, False
-    elif userinput in indexlist and continentf:
+    print(type(colomnname))
+    if userinput in indexlist and continentf:
         return True, True
-    else:
+    elif userinput in colomnname and not continentf:
         return True, False
+    else:
+        return False, False
 
 
 
@@ -108,11 +109,12 @@ class Vaccinations_Analyser():
         else:
             self.df = pd.read_csv(self.filename)
             count = userinput(titlel="Country", promptl="Enter the name of the counntry")
-            flag = userinputvalidation(count, self.df['location'])
-            if flag and fully:
+            inputflag, continentflag = userinputvalidation(count, self.df['location'], False)
+            print(inputflag, continentflag)
+            if inputflag and fully and not continentflag:
                 self.df[self.df['location']== count].plot(figsize=(15, 10), x='date', y=['people_fully_vaccinated'], title="Fully Vaccinated People of "+count, ylabel="Number of Fully Vaccinated People")
                 plt.show()
-            elif flag:
+            elif inputflag and not continentflag:
                 self.df[self.df['location']== count].plot(figsize=(15, 10), x='date', y=['total_vaccinations'], title="Total Vaccinations of "+count, ylabel="Number of Total Vaccinations")
                 plt.show()
             else:
@@ -128,11 +130,11 @@ class Vaccinations_Analyser():
             msg.showerror("ERROR", "NO FILE IMPORTED")
         else:
             count = userinput(titlel="Country", promptl="Enter the name of the counntry")
-            inputflag, _ = userinputvalidation(count, self.df['location'])
-            if inputflag and fully:
+            inputflag, continentflag = userinputvalidation(count, self.df['location'])
+            if inputflag and fully and not continentflag:
                 msg.showinfo("FULLY VACCINATED","The are " + self.df.loc[self.df['location']==count]['people_fully_vaccinated'].to_string(index=False) + 
                             " fully vaccinated people in " + count)
-            elif inputflag:
+            elif inputflag and not continentflag:
                 msg.showinfo("TOTAL VACCINATED", "There are "+ self.df.loc[self.df['location']==count]['total_vaccinations'].to_string(index=False)+
                             " total vaccinations in " + count)
             else:
@@ -199,8 +201,8 @@ class Vaccinations_Analyser():
         else:
             self.df = pd.read_csv(self.filename)
             count = userinput(titlel="Country", promptl="Enter the name of the country")
-            flag = userinputvalidation(count, self.df['location'])
-            if flag:
+            inputflag, continentflag = userinputvalidation(count, self.df['location'])
+            if inputflag and not continentflag:
                 self.df[self.df['location']== count].plot(figsize=(15, 10), x='date', y=['total_vaccinations','people_vaccinated','people_fully_vaccinated','daily_vaccinations_raw','daily_vaccinations','total_vaccinations_per_hundred','people_vaccinated_per_hundred','people_fully_vaccinated_per_hundred','daily_vaccinations_per_million'], title="Total Vaccinations of "+count, ylabel="Number of Total Vaccinations")
                 plt.show()
             else:
