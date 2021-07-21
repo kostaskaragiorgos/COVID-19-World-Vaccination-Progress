@@ -23,15 +23,15 @@ def userinputvalidation(userinput="", colomnname=""):
     Returns:
         flag: boolean value if the column contains the user input 
     """
-    if  not colomnname.str.contains(str(userinput)).any() or userinput=="":
+    if  userinput not in colomnname:
         return False
     else:
         return True
 
 
-def contuserinputvalidation(userinput="", columnname = ""):
+def contuserinputvalidation(userinput=""):
     indexlist = ["Asia", "Europe", "Africa", "Middle East", "World", "Upper middle income", "High income", "North America", "Lower middle income"]
-    if  not columnname.str.contains(str(userinput)).any() or userinput=="" and userinput not in indexlist:
+    if userinput not in indexlist:
         return False
     else:
         return True
@@ -214,12 +214,15 @@ class Vaccinations_Analyser():
         if self.filename == "":
             msg.showerror("ERROR", "NO FILE IMPORTED")
         else:
+            self.df = pd.read_csv(self.filename)
             cont = userinput(titlel="Continent", promptl="Enter the name of the continent")
-            flag = userinputvalidation(cont, self.df['location'])
+            flag = contuserinputvalidation(cont, self.df['location'])
             if flag:
-                pass
+                self.df[self.df['location']== cont].plot(figsize=(15, 10), x='date', y=['total_vaccinations','people_vaccinated','people_fully_vaccinated','daily_vaccinations_raw','daily_vaccinations','total_vaccinations_per_hundred','people_vaccinated_per_hundred','people_fully_vaccinated_per_hundred','daily_vaccinations_per_million'], title="Total Vaccinations of "+cont, ylabel="Number of Total Vaccinations")
+                plt.show()
             else:
                 msg.showerror("INVALID USER INPUT", "ENTER A VALID USER INPUT")
+            self.df.drop_duplicates(subset='location', keep='last', inplace=True)
 
     def exitmenu(self):
         if msg.askokcancel("Quit?", "Really quit?"):
