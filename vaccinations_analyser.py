@@ -29,7 +29,7 @@ def userinputvalidation(userinput="", colomnname="", continentf=False):
         return True, True
     elif userinput  in indexlist and not continentf:
         return False, False
-    elif colomnname.str.contains(str(userinput)).any() and not continentf:
+    elif colomnname.str.contains(str(userinput)).all() and not continentf:
         return True, False
     else:
         return False, False
@@ -111,14 +111,14 @@ class Vaccinations_Analyser():
             self.df = pd.read_csv(self.filename)
             count = userinput(titlel="Country", promptl="Enter the name of the counntry")
             inputflag, continentflag = userinputvalidation(count, self.df['location'], False)
-            if inputflag and fully and not continentflag:
-                self.df[self.df['location']== count].plot(figsize=(15, 10), x='date', y=['people_fully_vaccinated'], title="Fully Vaccinated People of "+count, ylabel="Number of Fully Vaccinated People")
-                plt.show()
-            elif inputflag and not continentflag:
+            if not continentflag and not inputflag:
+                msg.showerror("INVALID USER INPUT", "ENTER A VALID USER INPUT")
+            elif inputflag:
                 self.df[self.df['location']== count].plot(figsize=(15, 10), x='date', y=['total_vaccinations'], title="Total Vaccinations of "+count, ylabel="Number of Total Vaccinations")
                 plt.show()
-            else:
-                msg.showerror("INVALID USER INPUT", "ENTER A VALID USER INPUT")
+            elif  fully:
+                self.df[self.df['location']== count].plot(figsize=(15, 10), x='date', y=['people_fully_vaccinated'], title="Fully Vaccinated People of "+count, ylabel="Number of Fully Vaccinated People")
+                plt.show()
             self.df.drop_duplicates(subset='location', keep='last', inplace=True)
         
     def show_vaccination(self, fully=False):
