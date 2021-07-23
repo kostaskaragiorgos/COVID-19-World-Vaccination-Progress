@@ -131,14 +131,15 @@ class Vaccinations_Analyser():
         else:
             count = userinput(titlel="Country", promptl="Enter the name of the counntry")
             inputflag, continentflag = userinputvalidation(count, self.df['location'], True)
-            if inputflag and fully and not continentflag:
-                msg.showinfo("FULLY VACCINATED","The are " + self.df.loc[self.df['location']==count]['people_fully_vaccinated'].to_string(index=False) + 
-                            " fully vaccinated people in " + count)
-            elif inputflag and not continentflag:
+            if not inputflag and not continentflag:
+                msg.showerror("INVALID USER INPUT", "ENTER A VALID USER INPUT")
+            elif inputflag:
                 msg.showinfo("TOTAL VACCINATED", "There are "+ self.df.loc[self.df['location']==count]['total_vaccinations'].to_string(index=False)+
                             " total vaccinations in " + count)
             else:
-                msg.showerror("INVALID USER INPUT", "ENTER A VALID USER INPUT")
+                msg.showinfo("FULLY VACCINATED","The are " + self.df.loc[self.df['location']==count]['people_fully_vaccinated'].to_string(index=False) + 
+                            " fully vaccinated people in " + count)
+                
 
 
     def file_input_validation(self):
