@@ -71,7 +71,7 @@ class Vaccinations_Analyser():
 
         self.plot_menu = Menu(self.menu, tearoff=0)
         self.plot_menu.add_command(label="Vaccination Process of A Country", accelerator='Ctrl+Y', command=lambda: self.plotvaccpross(userinputtitle="Country", userinputprompt="Enter the name of the country", x="date",  ylabel="Number of Total Vaccinations"))
-        self.plot_menu.add_command(label="Vaccination Process of A Continent", accelerator='Alt+Y', command=self.vaccprossplotcontinent)
+        self.plot_menu.add_command(label="Vaccination Process of A Continent", accelerator='Alt+Y', command=self.plotvaccpross(userinputtitle="Continent", userinputprompt="Enter the name of the continent", x="date", ylabel="Number of Total Vaccinations"))
         self.plot_menu.add_command(label="Total Vaccinations of A Country", accelerator='Alt+P', command= lambda: self.plot_vaccination())
         self.plot_menu.add_command(label="Fully Vaccinatied of A Country", accelerator='Ctrl+P', command= lambda: self.plot_vaccination(True))
         self.menu.add_cascade(label="Plot", menu=self.plot_menu)
