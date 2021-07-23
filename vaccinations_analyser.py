@@ -29,7 +29,7 @@ def userinputvalidation(userinput="", colomnname="", continentf=False):
         return True, True
     elif userinput  in indexlist and not continentf:
         return False, False
-    elif colomnname.str.contains(str(userinput)).all() and not continentf:
+    elif colomnname.str.contains(str(userinput)).any() and not continentf:
         return True, False
     else:
         return False, False
@@ -116,7 +116,7 @@ class Vaccinations_Analyser():
             elif inputflag:
                 self.df[self.df['location']== count].plot(figsize=(15, 10), x='date', y=['total_vaccinations'], title="Total Vaccinations of "+count, ylabel="Number of Total Vaccinations")
                 plt.show()
-            elif  fully:
+            else:
                 self.df[self.df['location']== count].plot(figsize=(15, 10), x='date', y=['people_fully_vaccinated'], title="Fully Vaccinated People of "+count, ylabel="Number of Fully Vaccinated People")
                 plt.show()
             self.df.drop_duplicates(subset='location', keep='last', inplace=True)
