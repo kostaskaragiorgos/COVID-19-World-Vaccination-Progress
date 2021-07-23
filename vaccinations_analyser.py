@@ -167,6 +167,8 @@ class Vaccinations_Analyser():
             self.filename = ""
             msg.showerror("ERROR", "NO PROPER CSV ")
 
+    
+
     def vaccprossofacontinent(self):
         """vaccination process of a continent based on user's input"""
         if self.filename == "":
