@@ -27,9 +27,9 @@ def userinputvalidation(userinput="", colomnname="", continentf=False):
     indexlist = ["Asia", "Europe", "Africa", "Middle East", "World", "Upper middle income", "High income", "North America", "Lower middle income"]
     if userinput in indexlist and continentf:
         return True, True
-    elif userinput  in indexlist and not continentf:
+    elif userinput  in indexlist:
         return False, False
-    elif colomnname.str.contains(str(userinput)).any() and not continentf:
+    elif colomnname.str.contains(str(userinput)).any():
         return True, False
     else:
         return False, False
