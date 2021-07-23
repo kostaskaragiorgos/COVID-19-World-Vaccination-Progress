@@ -70,7 +70,7 @@ class Vaccinations_Analyser():
         self.menu.add_cascade(label="Show", menu=self.show_menu)
 
         self.plot_menu = Menu(self.menu, tearoff=0)
-        self.plot_menu.add_command(label="Vaccination Process of A Country", accelerator='Ctrl+Y', command=self.vaccprossplotcountry)
+        self.plot_menu.add_command(label="Vaccination Process of A Country", accelerator='Ctrl+Y', command=lambda: self.plotvaccpross(userinputtitle="Country", userinputprompt="Enter the name of the country", x="date",  ylabel="Number of Total Vaccinations"))
         self.plot_menu.add_command(label="Vaccination Process of A Continent", accelerator='Alt+Y', command=self.vaccprossplotcontinent)
         self.plot_menu.add_command(label="Total Vaccinations of A Country", accelerator='Alt+P', command= lambda: self.plot_vaccination())
         self.plot_menu.add_command(label="Fully Vaccinatied of A Country", accelerator='Ctrl+P', command= lambda: self.plot_vaccination(True))
@@ -193,6 +193,21 @@ class Vaccinations_Analyser():
             else:
                 msg.showerror("INVALID USER INPUT", "ENTER A VALID USER INPUT")
     
+    def plotvaccpross(self, userinputtitle, userinputprompt, x, y="", plottitle="", ylabel=""):
+        if self.filename == "":
+                msg.showerror("ERROR", "NO FILE IMPORTED")
+        else:
+            y=['total_vaccinations','people_vaccinated','people_fully_vaccinated','daily_vaccinations_raw','daily_vaccinations','total_vaccinations_per_hundred','people_vaccinated_per_hundred','people_fully_vaccinated_per_hundred','daily_vaccinations_per_million']
+            self.df = pd.read_csv(self.filename)
+            count = userinput(titlel=userinputtitle, promptl=userinputprompt)
+            inputflag, continentflag = userinputvalidation(count, self.df['location'])
+            if inputflag and not continentflag:
+                self.df[self.df['location']== count].plot(figsize=(15, 10), x=x, y=y,  title=plottitle, ylabel=ylabel)
+                plt.show()
+            else:
+                msg.showerror("INVALID USER INPUT", "ENTER A VALID USER INPUT")
+            self.df.drop_duplicates(subset='location', keep='last', inplace=True)
+    
     def vaccprossplotcountry(self):
         """plots vaccination process of a country based on user's input"""
 
@@ -218,7 +233,7 @@ class Vaccinations_Analyser():
             cont = userinput(titlel="Continent", promptl="Enter the name of the continent")
             inputflag, continentflag = userinputvalidation(cont, self.df['location'], True)
             if inputflag and continentflag:
-                self.df[self.df['location']== cont].plot(figsize=(15, 10), x='date', y=['total_vaccinations','people_vaccinated','people_fully_vaccinated','daily_vaccinations_raw','daily_vaccinations','total_vaccinations_per_hundred','people_vaccinated_per_hundred','people_fully_vaccinated_per_hundred','daily_vaccinations_per_million'], title="Total Vaccinations of "+cont, ylabel="Number of Total Vaccinations")
+                self.df[self.df['location']== cont].plot(figsize=(15, 10), x='date', title="Total Vaccinations of "+cont, ylabel="Number of Total Vaccinations")
                 plt.show()
             else:
                 msg.showerror("INVALID USER INPUT", "ENTER A VALID USER INPUT")
