@@ -209,22 +209,6 @@ class Vaccinations_Analyser():
             self.df.drop_duplicates(subset='location', keep='last', inplace=True)
     
 
-
-    def vaccprossplotcontinent(self):
-        """plots vaccination process of a continent based on user's input"""
-        if self.filename == "":
-            msg.showerror("ERROR", "NO FILE IMPORTED")
-        else:
-            self.df = pd.read_csv(self.filename)
-            cont = userinput(titlel="Continent", promptl="Enter the name of the continent")
-            inputflag, continentflag = userinputvalidation(cont, self.df['location'], True)
-            if inputflag and continentflag:
-                self.df[self.df['location']== cont].plot(figsize=(15, 10), x='date', title="Total Vaccinations of "+cont, ylabel="Number of Total Vaccinations")
-                plt.show()
-            else:
-                msg.showerror("INVALID USER INPUT", "ENTER A VALID USER INPUT")
-            self.df.drop_duplicates(subset='location', keep='last', inplace=True)
-
     def exitmenu(self):
         if msg.askokcancel("Quit?", "Really quit?"):
             self.master.destroy()
